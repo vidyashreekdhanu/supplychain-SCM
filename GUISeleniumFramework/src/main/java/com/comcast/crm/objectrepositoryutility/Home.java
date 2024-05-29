@@ -31,6 +31,11 @@ public class Home extends WebDriverUtility{
 		// TODO Auto-generated method stub
 
 	}
+	 
+	public void login()
+	{
+		System.out.println("hellooooo");
+	}
 	
 
 	public WebElement getLgBtn() {
