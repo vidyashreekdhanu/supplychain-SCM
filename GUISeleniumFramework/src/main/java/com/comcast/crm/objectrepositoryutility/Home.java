@@ -23,10 +23,21 @@ public class Home extends WebDriverUtility{
 		 this.driver = driver;
 		 PageFactory.initElements(driver, this);
 	 }
-	public void logout() {
-		
+	 
+	 @FindBy(xpath = "//input[@value='Log out']")
+	 private WebElement lgBtn;
+	 
+	 
+
+	public WebElement getLgBtn() {
+		return lgBtn;
 	}
 
+
+	public void logout() {
+	getLgBtn().click();
+		
+	}
 	
 
 	

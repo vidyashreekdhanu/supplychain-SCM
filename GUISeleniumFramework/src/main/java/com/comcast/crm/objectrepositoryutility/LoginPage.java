@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.comcast.crm.generic.basetest.BaseClass;
 import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 
 /**
@@ -16,7 +17,7 @@ import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
  * Contains Login page elements & business lib like login()
  *
  */  
-public class LoginPage extends WebDriverUtility{                              // Rule-1  create a separte java class
+public class LoginPage extends BaseClass{                              // Rule-1  create a separte java class
                            
 	WebDriver driver;
 	 public LoginPage(WebDriver driver) {             //Rule 3 : Object Initialization
@@ -24,17 +25,22 @@ public class LoginPage extends WebDriverUtility{                              //
 		 PageFactory.initElements(driver, this);
 	 }
 	                           
-	@FindBy(name="user_name")                        // Rule-2 Object Creation
+	@FindBy(name="txtUsername")                        // Rule-2 Object Creation
 	private WebElement usernameEdt;
 	
-	@FindBy(name="user_password")
+	@FindBy(name="txtPassword")
 	private WebElement passwordEdt;
 	
-	@FindBy(id = "submitButton")
+	@FindBy(xpath = "//input[@value='Login']")
 	private WebElement loginBtn;
 	     
-	
+	@FindBy(id = "login:type")
+	private WebElement selectDD;
 	                                             
+	public WebElement getSelectDD() {
+		return selectDD;
+	}
+
 	public WebElement getUsernameEdt() {            //Rule-4 : Object Encapsulation
 		return usernameEdt;                        //Rule-5 : Object Utilization
 	}
@@ -52,13 +58,39 @@ public class LoginPage extends WebDriverUtility{                              //
  * @param url
  * @param username
  * @param password
+ * @throws Throwable 
  */
-	 public void loginToapp(String url , String username , String password) {
-		 waitForPageToLoad(driver);
+	 public void loginToapp(String url , String username , String password) throws Throwable {
+		 wLib.waitForPageToLoad(driver);
+		 password=fLib.getDataFromPropertiesFile(password);
+		 url=fLib.getDataFromPropertiesFile(url);
+		 username=fLib.getDataFromPropertiesFile(username);
+		
+		 driver.manage().window().maximize();
+		 
+		 String txt = eLib.getDataFromExcel("Sheet1", 0, 3);
+		 wLib.select(selectDD, txt);
+		 loginBtn.click();
+	 }
+	 
+	 public void loginToappManu(String url , String usermanuf , String passwordmanuf) throws Throwable {
+		  wLib.waitForPageToLoad(driver);
 		 driver.get(url);	
-		// driver.manage().window().maximize();
-		 usernameEdt.sendKeys(username);
-		 passwordEdt.sendKeys(password);
+		 driver.manage().window().maximize();
+		 usernameEdt.sendKeys(usermanuf);
+		 passwordEdt.sendKeys(passwordmanuf);
+		 String txt = eLib.getDataFromExcel("Sheet1", 0, 2);
+		 wLib.select(selectDD, txt);
+		 loginBtn.click();
+	 }
+	 
+	 public void loginToappRet(String url , String userretailer , String passwordretailer) throws Throwable {
+		 wLib.waitForPageToLoad(driver);
+		 
+		 driver.manage().window().maximize();
+		 
+		 String txt = eLib.getDataFromExcel("Sheet1", 0, 1);
+		 wLib.select(selectDD, txt);
 		 loginBtn.click();
 	 }
 	
