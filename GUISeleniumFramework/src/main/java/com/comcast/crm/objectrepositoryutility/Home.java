@@ -33,7 +33,7 @@ public class Home extends WebDriverUtility{
 	}
 	 
 	 public void read() {
-		 
+		 System.out.println("hi");
 	 }
 	public void login()
 	{
