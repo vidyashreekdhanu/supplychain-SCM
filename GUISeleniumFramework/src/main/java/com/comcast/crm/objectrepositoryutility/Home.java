@@ -11,12 +11,12 @@ import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 
 /**
  * 
- * @author Deepak
+ * @author Kaveri
  * 
- * Contains Login page elements & business lib like login()
+ * Contains Home page elements & business lib like logOut()
  *
  */  
-public class Home extends WebDriverUtility{                             
+public class Home {                             
                            
 	WebDriver driver;
 	 public Home(WebDriver driver) {            
@@ -27,43 +27,111 @@ public class Home extends WebDriverUtility{
 	 @FindBy(xpath = "//input[@value='Log out']")
 	 private WebElement lgBtn;
 	 
-	 private void syso() {
-		// TODO Auto-generated method stub
+     @FindBy(linkText = "Retailers")
+     private WebElement homeRetailer;
+     
+     @FindBy(linkText= "Manufacturers")
+     private WebElement homeManufacturer;
+     
+     @FindBy(linkText= "Distributors")
+     private WebElement homeDistributor;
+     
+     @FindBy(linkText = "Products")
+     private WebElement homeProducts;
+     
+     @FindBy(linkText = "Orders")
+     private WebElement homeOrders;
+     
+     @FindBy(linkText = "Invoice")
+     private WebElement homeInvoice;
+     
+     @FindBy(linkText = "Add Products")
+     private WebElement homeAddProducts;
+     
+     @FindBy(linkText = "Add Retailers")
+     private WebElement homeAddRetailers;
+     
+     @FindBy(linkText = "Add Manufacturer")
+     private WebElement homeAddManufacturer;
+     
+     @FindBy(linkText = "Add Distributor")
+     private WebElement homeAddDistributor;
+     
+     @FindBy(linkText = "Manage Unit")
+     private WebElement homeManageUnit;
+     
+     @FindBy(linkText = "Manage Category")
+     private WebElement homeManageCategory;
+     
+     @FindBy(linkText = "Manage Area")
+     private WebElement homeManageArea;
+     
+     @FindBy(linkText = "Change Password")
+     private WebElement homeChangePassword;
+     
+     
 
+	public WebElement getHomeRetailer() {
+		return homeRetailer;
 	}
-	 
-	 public void read() {
-		 System.out.println("hi");
-	 }
-	public void loginPreethi()
-	{
-		System.out.println("hellooooo");
+
+	public WebElement getHomeManufacturer() {
+		return homeManufacturer;
 	}
-	public void login2()
-	{
-		System.out.println("hellooooo2");
+
+	public WebElement getHomeDistributor() {
+		return homeDistributor;
 	}
-	
-	public void login3()
-	{
-		System.out.println("hellooooo3");
+
+	public WebElement getHomeProducts() {
+		return homeProducts;
 	}
-	
-	public void login4()
-	{
-		System.out.println("hellooooo4");
+
+	public WebElement getHomeOrders() {
+		return homeOrders;
 	}
-	
-	public void login5()
-	{
-		System.out.println("helloooo5");
+
+	public WebElement getHomeInvoice() {
+		return homeInvoice;
+	}
+
+	public WebElement getHomeAddProducts() {
+		return homeAddProducts;
+	}
+
+	public WebElement getHomeAddRetailers() {
+		return homeAddRetailers;
+	}
+
+	public WebElement getHomeAddManufacturer() {
+		return homeAddManufacturer;
+	}
+
+	public WebElement getHomeAddDistributor() {
+		return homeAddDistributor;
+	}
+
+	public WebElement getHomeManageUnit() {
+		return homeManageUnit;
+	}
+
+	public WebElement getHomeManageCategory() {
+		return homeManageCategory;
+	}
+
+	public WebElement getHomeManageArea() {
+		return homeManageArea;
+	}
+
+	public WebElement getHomeChangePassword() {
+		return homeChangePassword;
 	}
 
 	public WebElement getLgBtn() {
 		return lgBtn;
 	}
 
-
+// Business logic
 	public void logout() {
 	getLgBtn().click();
 		

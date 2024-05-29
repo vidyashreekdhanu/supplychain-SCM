@@ -60,34 +60,43 @@ public class LoginPage extends BaseClass{                              // Rule-1
  * @param password
  * @throws Throwable 
  */
-	 public void loginToapp(String url , String username , String password) throws Throwable {
+	 public void loginToapp() throws Throwable {
 		 wLib.waitForPageToLoad(driver);
-		 driver.get(url);
+		 String URL = fLib.getDataFromPropertiesFile("url") ;
+		 String USERNAME = fLib.getDataFromPropertiesFile("username");
+		 String PASSWORD = fLib.getDataFromPropertiesFile("password");
+		 driver.get(URL);
 		 driver.manage().window().maximize();
-		 usernameEdt.sendKeys(username);
-		 passwordEdt.sendKeys(password);
+		 usernameEdt.sendKeys(USERNAME);
+		 passwordEdt.sendKeys(PASSWORD);
 		 String txt = eLib.getDataFromExcel("Sheet1", 0, 3);
 		 wLib.select(selectDD, txt);
 		 loginBtn.click();
 	 }
 	 
-	 public void loginToappManu(String url , String usermanuf , String passwordmanuf) throws Throwable {
-		  wLib.waitForPageToLoad(driver);
-		 driver.get(url);	
+	 public void loginToappManu() throws Throwable {
+		 wLib.waitForPageToLoad(driver);
+		 String URL = fLib.getDataFromPropertiesFile("url") ;
+		 String USERNAME = fLib.getDataFromPropertiesFile("usermanuf");
+		 String PASSWORD = fLib.getDataFromPropertiesFile("passwordmanuf");
+		 driver.get(URL);	
 		 driver.manage().window().maximize();
-		 usernameEdt.sendKeys(usermanuf);
-		 passwordEdt.sendKeys(passwordmanuf);
+		 usernameEdt.sendKeys(USERNAME);
+		 passwordEdt.sendKeys(PASSWORD);
 		 String txt = eLib.getDataFromExcel("Sheet1", 0, 2);
 		 wLib.select(selectDD, txt);
 		 loginBtn.click();
 	 }
 	 
-	 public void loginToappRet(String url , String userretailer , String passwordretailer) throws Throwable {
+	 public void loginToappRet() throws Throwable {
 		 wLib.waitForPageToLoad(driver);
-		 driver.get(url);	
+		 String URL = fLib.getDataFromPropertiesFile("url") ;
+		 String USERNAME = fLib.getDataFromPropertiesFile("userretailer");
+		 String PASSWORD = fLib.getDataFromPropertiesFile("passwordretailer");
+		 driver.get(URL);	
 		 driver.manage().window().maximize();
-		 usernameEdt.sendKeys(userretailer);
-		 passwordEdt.sendKeys(passwordretailer);
+		 usernameEdt.sendKeys(USERNAME);
+		 passwordEdt.sendKeys(PASSWORD);
 		 String txt = eLib.getDataFromExcel("Sheet1", 0, 1);
 		 wLib.select(selectDD, txt);
 		 loginBtn.click();
