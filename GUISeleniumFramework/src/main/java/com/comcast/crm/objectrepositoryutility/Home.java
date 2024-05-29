@@ -27,7 +27,11 @@ public class Home extends WebDriverUtility{
 	 @FindBy(xpath = "//input[@value='Log out']")
 	 private WebElement lgBtn;
 	 
-	 
+	 private void syso() {
+		// TODO Auto-generated method stub
+
+	}
+	
 
 	public WebElement getLgBtn() {
 		return lgBtn;

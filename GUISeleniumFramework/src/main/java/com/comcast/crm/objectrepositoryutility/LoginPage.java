@@ -62,12 +62,10 @@ public class LoginPage extends BaseClass{                              // Rule-1
  */
 	 public void loginToapp(String url , String username , String password) throws Throwable {
 		 wLib.waitForPageToLoad(driver);
-		 password=fLib.getDataFromPropertiesFile(password);
-		 url=fLib.getDataFromPropertiesFile(url);
-		 username=fLib.getDataFromPropertiesFile(username);
-		
+		 driver.get(url);
 		 driver.manage().window().maximize();
-		 
+		 usernameEdt.sendKeys(username);
+		 passwordEdt.sendKeys(password);
 		 String txt = eLib.getDataFromExcel("Sheet1", 0, 3);
 		 wLib.select(selectDD, txt);
 		 loginBtn.click();
@@ -86,9 +84,10 @@ public class LoginPage extends BaseClass{                              // Rule-1
 	 
 	 public void loginToappRet(String url , String userretailer , String passwordretailer) throws Throwable {
 		 wLib.waitForPageToLoad(driver);
-		 
+		 driver.get(url);	
 		 driver.manage().window().maximize();
-		 
+		 usernameEdt.sendKeys(userretailer);
+		 passwordEdt.sendKeys(passwordretailer);
 		 String txt = eLib.getDataFromExcel("Sheet1", 0, 1);
 		 wLib.select(selectDD, txt);
 		 loginBtn.click();
