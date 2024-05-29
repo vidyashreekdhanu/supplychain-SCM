@@ -39,7 +39,25 @@ public class Home extends WebDriverUtility{
 	{
 		System.out.println("hellooooo");
 	}
+	public void login2()
+	{
+		System.out.println("hellooooo2");
+	}
 	
+	public void login3()
+	{
+		System.out.println("hellooooo3");
+	}
+	
+	public void login4()
+	{
+		System.out.println("hellooooo4");
+	}
+	
+	public void login5()
+	{
+		System.out.println("helloooo5");
+	}
 
 	public WebElement getLgBtn() {
 		return lgBtn;
