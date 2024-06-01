@@ -49,6 +49,16 @@ public class EditManufacturerPage {
 	@FindBy(xpath = "//input[@value='Change Password']")
 
 	private WebElement changepass2;
+	
+
+
+	@FindBy(linkText = "Edit Profile")
+
+	private WebElement editprofiletab2;
+
+	public WebElement getEditprofiletab2() {
+		return editprofiletab2;
+	}
 
 	public WebElement getEditname() {
 

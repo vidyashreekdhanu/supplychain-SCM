@@ -15,6 +15,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.comcast.crm.generic.databaseutlity.DataBaseUtility;
 import com.comcast.crm.generic.fileutility.ExcelUtility;
@@ -46,16 +47,14 @@ public class BaseClass {
 		}
 		
 		
-       //  @Parameters ("BROWSER")
+        @Parameters ("BROWSER")
 	    @BeforeClass(groups = {"smokeTest", "regressionTest"})
 	    public void configBC() throws Throwable {
 	    	
 	    System.out.println("==Launch the BROWSER==");
 	    
-		
-		
-	    
-	   // String BROWSER	= fLib.getDataFromPropertiesFile("browser");
+		//String BROWSER=browser;
+	   //String BROWSER	= fLib.getDataFromPropertiesFile("browser");
 	    String BROWSER = System.getProperty("browser" , fLib.getDataFromPropertiesFile("browser"));
 		if(BROWSER.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();

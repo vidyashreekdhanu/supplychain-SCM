@@ -4,12 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.comcast.crm.generic.basetest.BaseClass;
 /*
  * @auother:Preethi
  *
  * contains RetailerPage web elemnets
  */
-public class RetailerPage {
+public class RetailerPage extends BaseClass{
 
 WebDriver driver;
 
@@ -63,6 +65,23 @@ private WebElement retaileraddbutton;
 public WebElement getretaileraddbutton()
 {
 return retaileraddbutton;
+}
+public void addretailer() throws Throwable
+{
+	
+	String name = eLib.getDataFromExcel("sheet1", 7, 1);
+	String password = eLib.getDataFromExcel("sheet1", 7, 2);
+	String areacode = eLib.getDataFromExcel("sheet1", 7, 3);
+	String phone = eLib.getDataFromExcel("sheet1", 7, 4);
+	String email = eLib.getDataFromExcel("sheet1", 7, 5);
+	String adress = eLib.getDataFromExcel("sheet1", 7, 6);
+	getretailername().sendKeys(name);
+	getretailerpwd().sendKeys(password);
+wLib.select(retailerareaCodeDD, areacode);
+getretailerphone().sendKeys(phone);
+getretaileraddress().sendKeys(adress);
+	getretaileremail().sendKeys(email);
+	getretaileraddbutton().click();
 }
 
 }

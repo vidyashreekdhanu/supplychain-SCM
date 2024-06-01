@@ -13,7 +13,10 @@ import com.comcast.crm.objectrepositoryutility.LoginPage;
 public class SampleTest extends BaseClass {
 
 	@Test(groups = {"smokeTest"})
-	public void createConTactTest() throws Throwable {		
+	public void createConTactTest() throws Throwable {	
+		
+		LoginPage lp = new LoginPage(driver);
+		lp.loginToapp();
 		
 	 System.out.println("runnngggggggggg");
 

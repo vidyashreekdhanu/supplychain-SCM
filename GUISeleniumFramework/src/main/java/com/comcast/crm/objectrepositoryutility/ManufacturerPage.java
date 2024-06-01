@@ -5,13 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.comcast.crm.generic.basetest.BaseClass;
+import com.comcast.crm.generic.fileutility.ExcelUtility;
+import com.comcast.crm.generic.fileutility.FileUtility;
+import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
+
 /*
  * @auother:Preethi
  *
  * contains Manufacture page web elemnets
  */
 
-public class ManufacturerPage {
+public class ManufacturerPage{
 
 WebDriver driver;
 public ManufacturerPage(WebDriver driver)
@@ -56,6 +61,18 @@ private WebElement manufaddbutton;
 public WebElement getmanufaddbutton()
 {
 return manufaddbutton;
+}
+
+public void addmanufacturer() throws Throwable
+{
+	ExcelUtility eLib = new ExcelUtility();
+	manufname.sendKeys(eLib.getDataFromExcel("sheet1", 2, 1));
+	manufemail.sendKeys(eLib.getDataFromExcel("sheet1", 2, 2));
+	manufphone.sendKeys(eLib.getDataFromExcel("sheet1", 2, 3));
+	manufusername.sendKeys(eLib.getDataFromExcel("sheet1", 2, 4));
+	manufpassword.sendKeys(eLib.getDataFromExcel("sheet1", 2, 5));
+	manufaddbutton.click();
+	
 }
 
 }

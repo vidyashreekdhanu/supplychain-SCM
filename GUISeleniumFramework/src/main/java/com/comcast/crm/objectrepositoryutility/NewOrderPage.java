@@ -16,11 +16,16 @@ public class NewOrderPage {
 	        this.driver = driver;
 	        PageFactory.initElements(driver, this);
 	     }
-	    
+	      //*[@id="1"]
 	  @FindBy(linkText = "New Order")
 	  private WebElement newOrder;
+	  @FindBy(xpath ="//*[@id='1']")
+	  private WebElement quantEdit;
 	  
-	  @FindBy(xpath = "//input[@value='Post Order']")
+	  public WebElement getQuantEdit() {
+		return quantEdit;
+	}
+	@FindBy(xpath = "//input[@value='Post Order']")
 	  private WebElement postOrderBtn;
 	  
 	public WebElement getNewOrder() {

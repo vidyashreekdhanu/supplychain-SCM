@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.comcast.crm.generic.basetest.BaseClass;
+import com.comcast.crm.generic.fileutility.ExcelUtility;
+import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
 
 /**
@@ -17,7 +19,7 @@ import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
  * Contains Login page elements & business lib like login()
  *
  */  
-public class LoginPage extends BaseClass{                              // Rule-1  create a separte java class
+public class LoginPage {                              // Rule-1  create a separte java class
                            
 	WebDriver driver;
 	 public LoginPage(WebDriver driver) {             //Rule 3 : Object Initialization
@@ -61,6 +63,9 @@ public class LoginPage extends BaseClass{                              // Rule-1
  * @throws Throwable 
  */
 	 public void loginToapp() throws Throwable {
+		WebDriverUtility wLib = new WebDriverUtility();
+		FileUtility fLib = new FileUtility();
+		ExcelUtility eLib = new ExcelUtility();
 		 wLib.waitForPageToLoad(driver);
 		 String URL = fLib.getDataFromPropertiesFile("url") ;
 		 String USERNAME = fLib.getDataFromPropertiesFile("username");
@@ -75,6 +80,9 @@ public class LoginPage extends BaseClass{                              // Rule-1
 	 }
 	 
 	 public void loginToappManu() throws Throwable {
+		 WebDriverUtility wLib = new WebDriverUtility();
+			FileUtility fLib = new FileUtility();
+			ExcelUtility eLib = new ExcelUtility();
 		 wLib.waitForPageToLoad(driver);
 		 String URL = fLib.getDataFromPropertiesFile("url") ;
 		 String USERNAME = fLib.getDataFromPropertiesFile("usermanuf");
@@ -89,6 +97,9 @@ public class LoginPage extends BaseClass{                              // Rule-1
 	 }
 	 
 	 public void loginToappRet() throws Throwable {
+		 WebDriverUtility wLib = new WebDriverUtility();
+			FileUtility fLib = new FileUtility();
+			ExcelUtility eLib = new ExcelUtility();
 		 wLib.waitForPageToLoad(driver);
 		 String URL = fLib.getDataFromPropertiesFile("url") ;
 		 String USERNAME = fLib.getDataFromPropertiesFile("userretailer");
